@@ -1,7 +1,7 @@
 {
   "name": "generator-scalatra",
   "version": "0.1.0",
-  "description": "A generator for Yeoman",
+  "description": "A Yeoman generator for Scalatra project",
   "keywords": [
     "yeoman-generator",
     "scalatra"
