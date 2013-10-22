@@ -33,7 +33,7 @@ Finally, initiate the generator:
 $ yo scalatra
 ```
 
-Start and scan for changes:
+#### Start and scan for changes:
 
 ```sh
 $ ./sbt
@@ -41,6 +41,13 @@ $ ./sbt
 ```
 
 Check it out at http://localhost:8080/messages
+
+#### Run tests
+
+```
+$ ./sbt
+> test
+```
 
 ## License
 
