@@ -5,7 +5,7 @@ A generator for [Yeoman](http://yeoman.io).
 
 ## Getting Started
 
-### What is Yeoman?
+### What is [Yeoman](http://yeoman.io)?
 
 ```
 $ npm install -g yo
@@ -32,8 +32,9 @@ Start and scan for changes:
 ```sh
 $ ./sbt
 > ~;container:start; container:reload /
-> browse
 ```
+
+Check it out at http://localhost:8080/messages
 
 ## License
 
