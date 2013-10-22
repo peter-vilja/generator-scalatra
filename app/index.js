@@ -23,22 +23,33 @@ ScalatraGenerator.prototype.askFor = function askFor() {
     name: 'organization',
     message: 'Organization name?',
     default: 'com.example'
-  }, {
-    name: 'package',
-    message: 'Package name?',
-    default: 'com.example.app'
-  }, {
-    name: 'servletName',
-    message: 'Servlet name?',
-    default: 'HelloServlet'
   }];
 
   this.prompt(prompts, function (props) {
     this.projectName = props.projectName;
     this.organization = props.organization;
-    this.package = props.package;
-    this.servletName = props.servletName;
-    cb();
+
+    var promptRest = [{
+      name: 'package',
+      message: props.organization + '.[Package name]?',
+      default: 'app'
+    }, {
+      name: 'servletName',
+      message: 'Servlet name?',
+      default: 'HelloServlet'
+    }]
+
+    this.prompt(promptRest, function(properties) {
+      this.package = props.organization + '.' + checkPackage(properties.package);
+      this.servletName = properties.servletName;
+      cb();
+    }.bind(this));
+
+    function checkPackage(pkg) {
+      return pkg.substring(0, props.organization.length) === props.organization ? 
+        pkg.slice(props.organization.length + 1) : pkg;
+    }
+
   }.bind(this));
 };
 
