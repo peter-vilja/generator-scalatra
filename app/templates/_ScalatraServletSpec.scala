@@ -10,9 +10,13 @@ class <%= servletName %>Spec extends MutableScalatraSpec {
       get("/") {
         status must_== 200
       }
-      get("/messages") {
+    }
+  }
+  "GET /messages on <%= servletName %>" should {
+  	"return status 200" in {
+  	  get("/messages") {
       	status must_== 200
       }
-    }
+  	}
   }
 }
