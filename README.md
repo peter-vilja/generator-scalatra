@@ -11,7 +11,7 @@ A generator for [Yeoman](http://yeoman.io).
 $ npm install -g yo
 ```
 
-### Yeoman Generators
+### Usage
 
 To install generator-scalatra from npm, run:
 
@@ -20,6 +20,12 @@ $ npm install -g generator-scalatra
 ```
 
 Or search generator-scalatra under yeoman.
+
+Make a new directory and ```cd``` into it:
+
+```
+mkdir new-project && cd $_
+```
 
 Finally, initiate the generator:
 
