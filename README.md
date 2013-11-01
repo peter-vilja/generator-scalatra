@@ -40,7 +40,7 @@ $ ./sbt
 > ~;container:start; container:reload /
 ```
 
-Check it out at http://localhost:8080/messages
+Check it out at **http://localhost:8080/messages**
 
 #### Run tests
 
