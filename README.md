@@ -1,7 +1,40 @@
 # generator-scalatra
+[![Build Status](https://secure.travis-ci.org/peter-vilja/generator-scalatra.png?branch=master)](https://travis-ci.org/peter-vilja/generator-scalatra)
 
-A generator for [Yeoman](http://yeoman.io).
+**Generates a basic structure for Scalatra REST Application.**
 
+An example structure of generated project.
+
+    .
+    ├── project
+    │   ├── build.properties
+    │   └── build.scala
+    |   └── plugins.sbt
+    ├── README.md
+    ├── sbt
+    ├── src
+        ├── main
+        |   ├── resources
+        |   └── scala
+        |   |   ├── com
+        |   |   |   ├── example
+        |   |   |       ├── app
+        |   |   |           ├── controllers
+        |   |   |               ├── MessageController.scala
+        |   |   └── ScalatraBootstrap.scala
+        |   └── webapp
+        |       ├── WEB-INF
+        |           ├── web.xml
+        └── test
+            ├── scala
+                ├── com
+                    ├── example
+                        ├── app
+                            ├── controllers
+                                ├── MessageControllerSpec.scala
+
+
+*A generator for [Yeoman](http://yeoman.io).*
 
 ## Getting Started
 
