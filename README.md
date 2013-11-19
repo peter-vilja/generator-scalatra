@@ -82,6 +82,15 @@ $ ./sbt
 > test
 ```
 
+## Changelog
+
+This changelog follows Semantic Versioning http://semver.org
+
+* **0.3.0**
+      * Add a 'controllers' folder
+      * Renamed default servlet name
+      * Improved documentation
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
