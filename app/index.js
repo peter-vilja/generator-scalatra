@@ -36,7 +36,7 @@ ScalatraGenerator.prototype.askFor = function askFor() {
     }, {
       name: 'servletName',
       message: 'Servlet name?',
-      default: 'HelloServlet'
+      default: 'MessageController'
     }]
 
     this.prompt(promptRest, function(properties) {
@@ -66,8 +66,8 @@ ScalatraGenerator.prototype.app = function app() {
   this.copy('sbt', 'sbt');
   this.copy('README.md', 'README.md');
   this.template('_ScalatraBootstrap.scala', 'src/main/scala/ScalatraBootstrap.scala');
-  this.template('_ScalatraServlet.scala', 'src/main/scala/' + makePath(this.package) + '/' + this.servletName + '.scala');
-  this.template('_ScalatraServletSpec.scala', 'src/test/scala/' + makePath(this.package) + '/' + this.servletName + 'Spec.scala');
+  this.template('_ScalatraServlet.scala', 'src/main/scala/' + makePath(this.package) + '/controllers/' + this.servletName + '.scala');
+  this.template('_ScalatraServletSpec.scala', 'src/test/scala/' + makePath(this.package) + '/controllers/' + this.servletName + 'Spec.scala');
   this.copy('web.xml', 'src/main/webapp/WEB-INF/web.xml');
 
   function makePath(path) {

@@ -4,7 +4,9 @@
   "description": "A Yeoman generator for Scalatra project",
   "keywords": [
     "yeoman-generator",
-    "scalatra"
+    "scalatra",
+    "scala",
+    "rest"
   ],
   "homepage": "https://github.com/peter-vilja/generator-scalatra",
   "bugs": "https://github.com/peter-vilja/generator-scalatra/issues",
