@@ -86,6 +86,10 @@ $ ./sbt
 
 This changelog follows Semantic Versioning http://semver.org
 
+* **0.3.2**
+      * Fixed documentation
+* **0.3.1**
+      * Minor refactoring
 * **0.3.0**
       * Add a 'controllers' folder
       * Renamed default servlet name
