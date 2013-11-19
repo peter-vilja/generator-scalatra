@@ -1,4 +1,4 @@
-/*global describe, beforeEach, before, it*/
+/*global describe, before, it*/
 'use strict';
 
 var path    = require('path');
@@ -9,8 +9,7 @@ var expect = chai.expect;
 
 
 describe('scalatra generator', function () {
-  before(createGenerator);
-
+  
   function createGenerator(done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
@@ -23,6 +22,8 @@ describe('scalatra generator', function () {
       done();
     }.bind(this));
   }
+
+  before(createGenerator);
 
   it('creates expected files', function (done) {
     var expected = [
@@ -75,12 +76,12 @@ describe('scalatra generator', function () {
     spec.should.be.a('string');
     expect(spec).to.contain('package com.peter.app');
     expect(spec).to.contain('class MessageServletSpec');
-    expect(spec).to.contain('addServlet(classOf[MessageServlet], "/*")')
+    expect(spec).to.contain('addServlet(classOf[MessageServlet], "/*")');
   }
 
   before(createGenerator);
 
-  it("creates correct package structure even when instructions are misundrestood", function (done) {
+  it('creates correct package structure even when instructions are misundrestood', function (done) {
     var expected = [
       // add files you expect to exist here.
       'sbt',
@@ -105,5 +106,5 @@ describe('scalatra generator', function () {
     
     testFilesUnderPackageStructure(this.app);
     done();
-  });  
+  });
 });

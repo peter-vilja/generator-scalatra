@@ -1,10 +1,9 @@
 'use strict';
 var util = require('util');
-var path = require('path');
 var yeoman = require('yeoman-generator');
 
 
-var ScalatraGenerator = module.exports = function ScalatraGenerator(args, options, config) {
+var ScalatraGenerator = module.exports = function ScalatraGenerator() {
   yeoman.generators.Base.apply(this, arguments);
 };
 
@@ -37,16 +36,16 @@ ScalatraGenerator.prototype.askFor = function askFor() {
       name: 'servletName',
       message: 'Servlet name?',
       default: 'MessageController'
-    }]
+    }];
 
-    this.prompt(promptRest, function(properties) {
+    this.prompt(promptRest, function (properties) {
       this.package = props.organization + '.' + checkPackage(properties.package);
       this.servletName = properties.servletName;
       cb();
     }.bind(this));
 
     function checkPackage(pkg) {
-      return pkg.substring(0, props.organization.length) === props.organization ? 
+      return pkg.substring(0, props.organization.length) === props.organization ?
         pkg.slice(props.organization.length + 1) : pkg;
     }
 
@@ -54,6 +53,11 @@ ScalatraGenerator.prototype.askFor = function askFor() {
 };
 
 ScalatraGenerator.prototype.app = function app() {
+
+  function makePath(path) {
+    return path.replace(/\./g, '/');
+  }
+
   this.mkdir('src/main/resources');
   this.mkdir('src/main/scala/' + makePath(this.package));
   this.mkdir('src/main/webapp/WEB-INF');
@@ -69,9 +73,5 @@ ScalatraGenerator.prototype.app = function app() {
   this.template('_ScalatraServlet.scala', 'src/main/scala/' + makePath(this.package) + '/controllers/' + this.servletName + '.scala');
   this.template('_ScalatraServletSpec.scala', 'src/test/scala/' + makePath(this.package) + '/controllers/' + this.servletName + 'Spec.scala');
   this.copy('web.xml', 'src/main/webapp/WEB-INF/web.xml');
-
-  function makePath(path) {
-    return path.replace(/\./g, '/');
-  }
 };
 
