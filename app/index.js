@@ -1,5 +1,6 @@
 'use strict';
 var util = require('util');
+var path = require('path')
 var yeoman = require('yeoman-generator');
 
 
@@ -17,7 +18,8 @@ ScalatraGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     name: 'projectName',
-    message: 'What do you want to call your project?'
+    message: 'What do you want to call your project?',
+    default: path.basename(process.cwd())
   }, {
     name: 'organization',
     message: 'Organization name?',
