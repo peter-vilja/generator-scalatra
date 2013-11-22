@@ -18,21 +18,21 @@ An example structure of generated project.
         |   ├── resources
         |   └── scala
         |   |   ├── com
-        |   |   |   ├── example
-        |   |   |       ├── app
-        |   |   |           ├── controllers
-        |   |   |               ├── MessageController.scala
+        |   |   |   └── example
+        |   |   |       └── app
+        |   |   |           └── controllers
+        |   |   |               └── MessageController.scala
         |   |   └── ScalatraBootstrap.scala
         |   └── webapp
-        |       ├── WEB-INF
-        |           ├── web.xml
+        |       └── WEB-INF
+        |           └── web.xml
         └── test
-            ├── scala
-                ├── com
-                    ├── example
-                        ├── app
-                            ├── controllers
-                                ├── MessageControllerSpec.scala
+            └── scala
+                └── com
+                    └── example
+                        └── app
+                            └── controllers
+                                └── MessageControllerSpec.scala
 
 
 *A generator for [Yeoman](http://yeoman.io).*
