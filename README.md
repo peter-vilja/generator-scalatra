@@ -98,8 +98,11 @@ $ ./sbt
 
 ## Changelog
 
-This changelog follows Semantic Versioning http://semver.org
+This Changelog follows Semantic Versioning http://semver.org
 
+* **0.4.0**
+      * Included option for Casbah and MongoDB
+      * Minor fixes to files' package paths
 * **0.3.2**
       * Fixed documentation
 * **0.3.1**
