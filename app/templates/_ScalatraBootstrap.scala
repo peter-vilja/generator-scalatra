@@ -1,4 +1,4 @@
-import <%= package %>._
+import <%= package %>.controllers._
 import org.scalatra._
 import javax.servlet.ServletContext
 

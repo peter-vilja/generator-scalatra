@@ -6,7 +6,9 @@
     "yeoman-generator",
     "scalatra",
     "scala",
-    "rest"
+    "rest",
+    "casbah",
+    "mongodb"
   ],
   "homepage": "https://github.com/peter-vilja/generator-scalatra",
   "bugs": "https://github.com/peter-vilja/generator-scalatra/issues",

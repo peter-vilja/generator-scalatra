@@ -1,6 +1,6 @@
 'use strict';
 var util = require('util');
-var path = require('path')
+var path = require('path');
 var yeoman = require('yeoman-generator');
 
 
@@ -38,11 +38,16 @@ ScalatraGenerator.prototype.askFor = function askFor() {
       name: 'servletName',
       message: 'Servlet name?',
       default: 'MessageController'
+    }, {
+      name: 'mongo',
+      message: 'Add Casbah for MongoDB?',
+      type: 'confirm'
     }];
 
     this.prompt(promptRest, function (properties) {
       this.package = props.organization + '.' + checkPackage(properties.package);
       this.servletName = properties.servletName;
+      this.mongo = properties.mongo;
       cb();
     }.bind(this));
 
@@ -73,6 +78,9 @@ ScalatraGenerator.prototype.app = function app() {
   this.copy('README.md', 'README.md');
   this.template('_ScalatraBootstrap.scala', 'src/main/scala/ScalatraBootstrap.scala');
   this.template('_ScalatraServlet.scala', 'src/main/scala/' + makePath(this.package) + '/controllers/' + this.servletName + '.scala');
+  if (this.mongo) {
+    this.template('_MessageRepository.scala', 'src/main/scala/' + makePath(this.package) + '/repositories/MessageRepository.scala');
+  }
   this.template('_ScalatraServletSpec.scala', 'src/test/scala/' + makePath(this.package) + '/controllers/' + this.servletName + 'Spec.scala');
   this.copy('web.xml', 'src/main/webapp/WEB-INF/web.xml');
 };

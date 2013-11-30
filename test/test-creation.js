@@ -15,7 +15,6 @@ describe('scalatra generator', function () {
       if (err) {
         return done(err);
       }
-
       this.app = helpers.createGenerator('scalatra:app', [
         '../../app'
       ]);
@@ -34,6 +33,7 @@ describe('scalatra generator', function () {
       'project/build.scala',
       'src/main/scala/ScalatraBootstrap.scala',
       'src/main/scala/com/peter/app/controllers/MessageServlet.scala',
+      'src/main/scala/com/peter/app/repositories/MessageRepository.scala',
       'src/main/webapp/WEB-INF/web.xml'
     ];
 
@@ -41,7 +41,8 @@ describe('scalatra generator', function () {
       'projectName': 'scalatra-app',
       'organization': 'com.peter',
       'package': 'app',
-      'servletName': 'MessageServlet'
+      'servletName': 'MessageServlet',
+      'mongo': true
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -59,7 +60,7 @@ describe('scalatra generator', function () {
     var bootstrap = this.app.readFileAsString('src/main/scala/ScalatraBootstrap.scala');
     bootstrap.should.be.a('string');
     expect(bootstrap).to.contain('context.mount(new MessageServlet, "/")');
-    expect(bootstrap).to.contain('import com.peter.app._');
+    expect(bootstrap).to.contain('import com.peter.app.controllers._');
 
     testFilesUnderPackageStructure(this.app);
     
@@ -74,37 +75,39 @@ describe('scalatra generator', function () {
 
     var spec = app.readFileAsString('src/test/scala/com/peter/app/controllers/MessageServletSpec.scala');
     spec.should.be.a('string');
-    expect(spec).to.contain('package com.peter.app');
+    expect(spec).to.contain('package com.peter.app.controllers');
     expect(spec).to.contain('class MessageServletSpec');
     expect(spec).to.contain('addServlet(classOf[MessageServlet], "/*")');
   }
 
-  before(createGenerator);
-
   it('creates correct package structure even when instructions are misundrestood', function (done) {
-    var expected = [
-      // add files you expect to exist here.
-      'sbt',
-      'project/plugins.sbt',
-      'project/build.properties',
-      'project/build.scala',
-      'src/main/scala/ScalatraBootstrap.scala',
-      'src/main/scala/com/peter/app/controllers/MessageServlet.scala',
-      'src/main/webapp/WEB-INF/web.xml'
-    ];
+    var create = createGenerator.bind(this);
+    create(function() {
+      var expected = [
+        // add files you expect to exist here.
+        'sbt',
+        'project/plugins.sbt',
+        'project/build.properties',
+        'project/build.scala',
+        'src/main/scala/ScalatraBootstrap.scala',
+        'src/main/scala/com/peter/app/controllers/MessageServlet.scala',
+        'src/main/webapp/WEB-INF/web.xml'
+      ];
 
-    helpers.mockPrompt(this.app, {
-      'projectName': 'scalatra-app',
-      'organization': 'com.peter',
-      'package': 'com.peter.app',
-      'servletName': 'MessageServlet'
-    });
-    this.app.options['skip-install'] = true;
-    this.app.run({}, function () {
-      helpers.assertFiles(expected);
-    });
-    
-    testFilesUnderPackageStructure(this.app);
-    done();
+      helpers.mockPrompt(this.app, {
+        'projectName': 'scalatra-app',
+        'organization': 'com.peter',
+        'package': 'com.peter.app',
+        'servletName': 'MessageServlet',
+        'mongo': false
+      });
+      this.app.options['skip-install'] = true;
+      this.app.run({}, function () {
+        helpers.assertFiles(expected);
+      });
+      
+      testFilesUnderPackageStructure(this.app);
+      done();
+    }.bind(this));
   });
 });

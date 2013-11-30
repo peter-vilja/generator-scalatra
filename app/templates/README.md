@@ -1,4 +1,4 @@
-Start app and scan for changes:
+## Start app and scan for changes:
 
 ```sh
 $ ./sbt

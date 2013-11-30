@@ -2,7 +2,7 @@
 [![Build Status](https://secure.travis-ci.org/peter-vilja/generator-scalatra.png?branch=master)](https://travis-ci.org/peter-vilja/generator-scalatra)
 [![NPM version](https://badge.fury.io/js/generator-scalatra.png)](http://badge.fury.io/js/generator-scalatra)
 
-**Generates a basic structure for Scalatra REST Application.**
+**Generates a basic structure for Scalatra REST Application and includes Casbah for MongoDB if you wish.**
 
 An example structure of generated project.
 
@@ -67,6 +67,19 @@ Finally, initiate the generator:
 $ yo scalatra
 ```
 
+#### If you selected MongoDB you need to have mongo running, if not you can skip this
+
+```sh
+$ mongod
+```
+Create collection and insert new message (Optional)
+
+```sh
+$ mongo
+> db.createCollection('messages')
+> db.messages.insert({body: 'Hello Mongo World!'})
+```
+
 #### Start and scan for changes:
 
 ```sh
@@ -78,7 +91,7 @@ Check it out at **http://localhost:8080/messages**
 
 #### Run tests
 
-```
+```sh
 $ ./sbt
 > test
 ```

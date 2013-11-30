@@ -1,4 +1,4 @@
-package <%= package %>
+package <%= package %>.controllers
 
 import org.scalatra.test.specs2._
 
