@@ -82,7 +82,7 @@ describe('scalatra generator', function () {
 
   it('creates correct package structure even when instructions are misundrestood', function (done) {
     var create = createGenerator.bind(this);
-    create(function() {
+    create(function () {
       var expected = [
         // add files you expect to exist here.
         'sbt',
