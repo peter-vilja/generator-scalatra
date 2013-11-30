@@ -41,7 +41,7 @@ An example structure of generated project.
 
 ### What is [Yeoman](http://yeoman.io)?
 
-```
+```sh
 $ npm install -g yo
 ```
 
@@ -49,7 +49,7 @@ $ npm install -g yo
 
 To install generator-scalatra from npm, run:
 
-```
+```sh
 $ npm install -g generator-scalatra
 ```
 
@@ -57,17 +57,17 @@ Or search generator-scalatra under yeoman.
 
 Make a new directory and ```cd``` into it:
 
-```
+```sh
 mkdir new-project && cd $_
 ```
 
 Finally, initiate the generator:
 
-```
+```sh
 $ yo scalatra
 ```
 
-#### If you selected MongoDB you need to have mongo running, if not you can skip this
+#### If you selected MongoDB you need to have MongoDB running, if not you can skip this
 
 ```sh
 $ mongod
