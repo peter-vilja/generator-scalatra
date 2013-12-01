@@ -72,10 +72,13 @@ $ yo scalatra
 ```sh
 $ mongod
 ```
-Create collection and insert new message (Optional)
+**Create db, collection and insert new message (Optional).**
+
+Application will use project name to create db, if the db doesn´t already exist.
 
 ```sh
 $ mongo
+> use <project name>
 > db.createCollection('messages')
 > db.messages.insert({body: 'Hello Mongo World!'})
 ```
@@ -102,7 +105,7 @@ This Changelog follows Semantic Versioning http://semver.org
 
 * **0.4.0**
       * Included option for Casbah and MongoDB
-      * Minor fixes to files' package paths
+      * Minor fixes to files´ package paths
 * **0.3.2**
       * Fixed documentation
 * **0.3.1**
