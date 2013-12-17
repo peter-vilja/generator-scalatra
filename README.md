@@ -1,7 +1,6 @@
 # generator-scalatra
 [![Build Status](https://secure.travis-ci.org/peter-vilja/generator-scalatra.png?branch=master)](https://travis-ci.org/peter-vilja/generator-scalatra)
 [![NPM version](https://badge.fury.io/js/generator-scalatra.png)](http://badge.fury.io/js/generator-scalatra)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 **Generates a basic structure for Scalatra REST Application and includes Casbah for MongoDB if you wish.**
 
