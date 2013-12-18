@@ -117,4 +117,4 @@ This Changelog follows Semantic Versioning http://semver.org
 
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+[MIT](http://en.wikipedia.org/wiki/MIT_License) @ Peter Vilja
