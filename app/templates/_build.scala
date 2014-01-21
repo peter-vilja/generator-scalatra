@@ -8,7 +8,7 @@ object MyAppBuild extends Build {
   val Name = "<%= projectName %>"
   val Version = "0.1.0-SNAPSHOT"
   val ScalaVersion = "2.10.3"
-  val ScalatraVersion = "2.2.1"
+  val ScalatraVersion = "2.2.2"
 
   lazy val project = Project (
     "<%= projectName %>",
