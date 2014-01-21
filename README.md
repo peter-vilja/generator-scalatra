@@ -103,6 +103,8 @@ $ ./sbt
 
 This Changelog follows Semantic Versioning http://semver.org
 
+* **0.4.1**
+      * Scalatra version upgraded to 2.2.2
 * **0.4.0**
       * Included option for Casbah and MongoDB
       * Minor fixes to files´ package paths
